@@ -70,9 +70,7 @@ export default {
         this.isSearch = true
         const response = await apiService.searchCharacters(event)
         const data = await response.json()
-        console.log(data)
         const searchData = data.result.map(d => d.properties)
-        console.log(searchData)
         this.characters = [...searchData]
         this.pageNumber = 1
       } else {
