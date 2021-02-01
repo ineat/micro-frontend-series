@@ -1,0 +1,9 @@
+<div class="sw-search">
+  <input type="text" [(ngModel)]="searchValue" />
+  <button class="btn-clear" *ngIf="searchValue !== ''" (click)="handleClear()">
+    clear
+  </button>
+  <button (click)="handleSearch()">
+    Search
+  </button>
+</div>

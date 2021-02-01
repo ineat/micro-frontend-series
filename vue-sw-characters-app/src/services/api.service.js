@@ -2,7 +2,7 @@ export default class ApiService {
   constructor() {}
 
   getCharacters(page) {
-    return fetch(`https://www.swapi.tech/api/people?page=${page}&limit=10`);
+    return fetch(`https://localhost:7071/api/peoples?page=${page}&limit=10`);
   }
 
   searchCharacters(search) {
