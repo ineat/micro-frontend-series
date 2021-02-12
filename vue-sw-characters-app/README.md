@@ -1,12 +1,17 @@
 # vue-sw-characters-app
-This is a sample project to illustrate this [blog article]()
+This is a sample project to illustrate this [blog article](https://blog.ineat-group.com/2021/01/creer-une-application-micro-frontend-avec-vuejs/)
 
 # Technologie
 * VueJS 2
 * WebComponent
 
 ## Project setup
-Install VueCLI in global 
+### Install VueCLI in global 
+```
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
+```
 
 ### Install project
 ```
