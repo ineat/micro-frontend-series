@@ -1,0 +1,10 @@
+<h2>{{title}}</h2>
+<div class="sw-bloc">
+  <app-search (search)="onSearch($event)"></app-search>
+  <div class="sw-list">
+    <ul class="list">
+      <app-planet-tile *ngFor="let item of planets" [planet]="item"></app-planet-tile>
+    </ul>
+  </div>
+  <app-pagination [pageNumber]="pageNumber" (pageChange)="onPageChange($event)"></app-pagination>
+</div>
