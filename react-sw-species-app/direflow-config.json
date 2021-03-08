@@ -1,0 +1,10 @@
+{
+  "build": {
+    "componentPath": "direflow-components",
+    "filename": "sw-species.js"
+  },
+  "modules": {
+    "react": false,
+    "reactDOM": false
+  }
+}

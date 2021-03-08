@@ -1,0 +1,34 @@
+.pagination-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 1rem 0;
+
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+
+    li {
+      list-style: none;
+      padding: 0.25rem 0.5rem;
+      margin: 0 0.125rem;
+      border: 1px solid #fff;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+        background: rgba($color: #ff2200, $alpha: 0.5);
+        border: 1px solid rgba($color: #ff2200, $alpha: 0.5);
+      }
+
+      &.current {
+        border: 1px solid darkred;
+        cursor: default;
+        color: #fff;
+        background: darkred;
+      }
+    }
+  }
+}
