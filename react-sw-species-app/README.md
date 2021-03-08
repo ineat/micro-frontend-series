@@ -1,6 +1,6 @@
 # react-sw-species-app
 
-This is a sample project to illustrate this [blog article](https://blog.ineat-group.com/2021/01/creer-une-application-micro-frontend-avec-vuejs/)
+This is a sample project to illustrate this [blog article](https://blog.ineat-group.com/2021/03/creer-une-application-micro-frontend-avec-react-direflow/)
 
 # Technologie
 
