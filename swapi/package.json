@@ -2,12 +2,12 @@
   "name": "local-swapi",
   "version": "1.0.0",
   "description": "A Local StarWars Api Mock",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "start:api": "node src/server.js",
     "prestart:api": "node src/createMockDb.js"
   },
-  "author": "",
+  "author": "Nicolas Fourré",
   "license": "ISC",
   "dependencies": {
     "json-server": "0.16.3"
