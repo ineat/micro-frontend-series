@@ -13,3 +13,6 @@ This folder contains code using to create micro-frontend application using React
 ## ng-sw-planets-app
 
 This folder contain code using to create micro-frontend application using Angular framework.
+
+## swapi
+This folder contain code to mock StarWars API used by micro-frontend application, you need run it before run micro-frontend application
