@@ -48,6 +48,7 @@ export default {
     currentPage: 1,
     pageNumber: 1,
     isSearch: false,
+    search: ''
   }),
   mounted() {
     this.fetchCharacters()
@@ -55,26 +56,32 @@ export default {
   methods: {
     async fetchCharacters(page = 1) {
       const response = await apiService.getCharacters(page)
+      const characterCount = response.headers.get('X-Total-Count')
       const data = await response.json()
-      this.characters = [...data.results]
-      this.pageNumber = data.total_pages
+      this.characters = [...data]
+
+      this.pageNumber = Math.round(parseInt(characterCount) / 10)
     },
     async onChangePage(event) {
+      this.currentPage = event
       if(!this.isSearch) {
-        this.currentPage = event
         this.fetchCharacters(event)
+      } else {
+        this.onSearch(this.search, event)
       }
     },
-    async onSearch(event) {
+    async onSearch(event, page = 1) {
       if(event !== '') {
         this.isSearch = true
-        const response = await apiService.searchCharacters(event)
+        this.search = event
+        const response = await apiService.searchCharacters(this.search, page)
+        const characterCount = response.headers.get('X-Total-Count')
         const data = await response.json()
-        const searchData = data.result.map(d => d.properties)
-        this.characters = [...searchData]
-        this.pageNumber = 1
+        this.characters = [...data]
+        this.pageNumber = Math.round(parseInt(characterCount) / 10)
       } else {
         this.isSearch = false
+        this.search = ''
         this.fetchCharacters()
       }
     }
