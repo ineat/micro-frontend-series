@@ -6,6 +6,12 @@ This is a sample project to illustrate this [blog article](https://blog.ineat-gr
 * WebComponent
 
 ## Project setup
+
+### API Setup
+This micro-frontend application use StarWars API Mock from this repository.
+
+Before start the project, launch swapi using the following instruction [Swapi Get Started](https://github.com/ineat/micro-frontend-series/tree/main/swapi)
+
 ### Install VueCLI in global 
 ```
 npm install -g @vue/cli
