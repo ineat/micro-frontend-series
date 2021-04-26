@@ -3298,5 +3298,6 @@ const specie = [
 module.exports = {
   starship,
   people,
-  planet
+  planet,
+  specie
 };
