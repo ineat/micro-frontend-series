@@ -70,6 +70,14 @@ GET    /people
 
 This route is paginated by default and return 10 people per page
 
+### Specie route
+Get all species from database
+```bash
+GET    /specie
+```
+
+This route is paginated by default and return 10 species per page
+
 ### Planet route
 Get all planet from database
 ```bash
