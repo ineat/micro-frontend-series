@@ -1,30 +1,31 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss']
+  styleUrls: ['./pagination.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PaginationComponent implements OnInit, OnChanges {
-  @Input() pageNumber: Number;
+  @Input() pageNumber: number
+  @Input() currentPage: string
   @Output() pageChange = new EventEmitter<string>()
-  pages = [];
-  current = 1;
+  pages = []
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.createPagination();
+    this.createPagination()
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    this.createPagination();
+  ngOnChanges() {
+    this.createPagination()
   }
 
   createPagination() {
     this.pages = [];
     for(let i = 1; i <= this.pageNumber; i++) {
-      this.pages = [...this.pages, {id: i, text: i }]
+      this.pages = [...this.pages, {id: i, text: i, current: i === parseInt(this.currentPage) }]
     }
   }
 

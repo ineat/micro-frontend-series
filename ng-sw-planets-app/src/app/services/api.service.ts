@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponse } from '../interfaces/planets.interface';
+import { Planet } from '../interfaces/planets.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,10 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   getPlanets(page: String) {
-    return this.httpClient.get<ApiResponse>(`https://ilab-swapi-api.azurewebsites.net/api/planets?page=${page}&limit=10`);
+    return this.httpClient.get<Planet[]>(`http://localhost:3010/planet?_page=${page}&_limit=10`, {observe: 'response'});
   }
 
-  searchPlanets(search: String) {
-    return this.httpClient.get<ApiResponse>(`https://ilab-swapi-api.azurewebsites.net/api/planets/search?name=${search}`);
+  searchPlanets(search: String, page: number) {
+    return this.httpClient.get<Planet[]>(`http://localhost:3010/planet?q=${search}&_page=${page}&_limit=10`, {observe: 'response'});
   }
 }

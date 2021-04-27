@@ -11,14 +11,18 @@ import { take } from 'rxjs/operators';
 export class PlanetsComponent implements OnInit {
   @Input() title: string = 'Liste des planètes'
   planets: any[]
-  pageNumber: Number
-  isSearch: boolean;
-  currentPage: string;
+  pageNumber: number
+  isSearch: boolean
+  search: string
+  currentPage: string
+  resultPerPage: number = 10
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.isSearch = false;
+    this.isSearch = false
+    this.search = ''
+    this.currentPage = '1'
     this.fetchPlanets();
   }
 
@@ -27,29 +31,33 @@ export class PlanetsComponent implements OnInit {
       .pipe(
         take(1)
       )
-      .subscribe(data => {
-        this.planets = data.results;
-        this.pageNumber = data.total_pages;
+      .subscribe(response => {
+        this.planets = response.body
+        this.pageNumber = Math.round(parseInt(response.headers.get('X-Total-Count')) / this.resultPerPage)
       })
   }
 
   onSearch(event: string) {
     if(event !== '') {
       this.isSearch = true
-      this.apiService.searchPlanets(event).subscribe(data => {
-        this.planets = data.results;
-        this.pageNumber = data.total_pages;
+      this.search = event
+      this.apiService.searchPlanets(this.search, parseInt(this.currentPage)).subscribe(response => {
+        this.planets = response.body
+        this.pageNumber = Math.round(parseInt(response.headers.get('X-Total-Count')) / this.resultPerPage)
       })
     } else {
       this.isSearch = false
+      this.search = ''
       this.fetchPlanets()
     }
   }
 
   onPageChange(event: string) {
+    this.currentPage = event
     if(!this.isSearch) {
-      this.currentPage = event
       this.fetchPlanets(event)
+    } else {
+      this.onSearch(this.search)
     }
   }
 
