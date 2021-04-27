@@ -17,16 +17,20 @@ const App = () => {
 
   const fetchCharacters = async (page = 1) => {
     const response = await getSpecies(page);
+    const totalCount = response.headers.get('X-Total-Count');
+    const pageNumber = totalCount % 10 === 0 ? 0 : 1 + Math.trunc(totalCount / 10);
     const data = await response.json();
-    setSpecies(data.results);
-    setPaginationData({ currentPage: page, pageNumber: data.total_pages })
+    setSpecies(data);
+    setPaginationData({ currentPage: page, pageNumber })
   }
 
   const fetchSearch = async (search, page = 1) => {
     const response = await searchSpecies(search, page);
+    const totalCount = response.headers.get('X-Total-Count');
+    const pageNumber = totalCount % 10 === 0 ? 0 : 1 + Math.trunc(totalCount / 10);
     const data = await response.json();
-    setSpecies(data.results);
-    setPaginationData({ currentPage: page, pageNumber: data.total_pages });
+    setSpecies(data);
+    setPaginationData({ currentPage: page, pageNumber });
   }
 
   const onSearchChange = useCallback(event => {
