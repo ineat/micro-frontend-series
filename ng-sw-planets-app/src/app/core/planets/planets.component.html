@@ -6,5 +6,5 @@
       <app-planet-tile *ngFor="let item of planets" [planet]="item"></app-planet-tile>
     </ul>
   </div>
-  <app-pagination [pageNumber]="pageNumber" (pageChange)="onPageChange($event)"></app-pagination>
+  <app-pagination [pageNumber]="pageNumber" [currentPage]="currentPage" (pageChange)="onPageChange($event)"></app-pagination>
 </div>

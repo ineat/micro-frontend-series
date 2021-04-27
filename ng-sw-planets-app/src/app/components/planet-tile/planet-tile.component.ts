@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Planets } from '../../interfaces/planets.interface';
+import { Planet } from '../../interfaces/planets.interface';
 
 @Component({
   selector: 'app-planet-tile',
@@ -8,5 +8,5 @@ import { Planets } from '../../interfaces/planets.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlanetTileComponent {
-  @Input() planet: Planets;
+  @Input() planet: Planet;
 }

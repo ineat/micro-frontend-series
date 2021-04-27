@@ -1,6 +1,6 @@
 <div class="pagination-wrapper">
   <ul>
-    <li *ngFor="let item of pages" (click)="handleClick(item.id)">
+    <li [ngClass]="{'current': item.current}" *ngFor="let item of pages" (click)="handleClick(item.id)">
       <span>{{ item.text }}</span>
     </li>
   </ul>
