@@ -14,5 +14,9 @@ This folder contains code using to create micro-frontend application using React
 
 This folder contain code using to create micro-frontend application using Angular framework.
 
+## lit-sw-starships-app
+
+This folder contain code using to create micro-frontend application using Lit library.
+
 ## swapi
 This folder contain code to mock StarWars API used by micro-frontend application, you need run it before run micro-frontend application
